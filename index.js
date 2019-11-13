@@ -19,7 +19,12 @@ Airplane.prototype.land = function () {
   this.isFlying = false;
 };
 
-
+let biplane = new Airplane('biplane');
+// console.log(Airplane);
+// console.log('---------');
+// console.log(biplane);
+// biplane.takeOff();
+// console.log(biplane);
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -38,9 +43,30 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
 
-function Person() {
+Person.prototype.eat = function (food){
+  console.log(`${this.name} just ate some ${food}`);
+  if (this.stomach.length < 10){
+    this.stomach.push(`${food}`);
+    console.log(this.stomach);
+  } else {
+    console.log('im too full 🤢')
+  }
+}
 
+Person.prototype.poop = function (){
+  console.log(`${this.name} just pooped 💩`);
+  this.stomach = [];
+}
+
+Person.prototype.toString = function (){
+  console.log(`${this.name}, ${this.age}`);
+  return `${this.name}, ${this.age}`;
 }
 
 /*
