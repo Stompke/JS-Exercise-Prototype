@@ -11,10 +11,10 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  this.stomach = [];
+function Person(args) {
+  this.name = args.name,
+  this.age = args.age,
+  this.stomach = []
 }
 
 Person.prototype.eat = function (food){
@@ -38,7 +38,7 @@ Person.prototype.toString = function (){
 }
 
 
-let shawn = new Person('shawn', 26);
+let shawn = new Person({name: 'Shawn', age: 26});
 
 shawn.eat('pumpkins');
 shawn.eat('tomatoes');
