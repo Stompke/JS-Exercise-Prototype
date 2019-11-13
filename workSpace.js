@@ -1,4 +1,75 @@
 /*
+  EXAMPLE TASK:
+    - Write an Airplane constructor that initializes `name` from an argument.
+    - All airplanes built with Airplane should initialize with an `isFlying` of false.
+    - Give airplanes the ability to `.takeOff()` and `.land()`:
+        + If a plane takes off, its `isFlying` property is set to true.
+        + If a plane lands, its `isFlying` property is set to false.
+*/
+
+// EXAMPLE SOLUTION CODE:
+function Airplane(name) {
+  this.name = name;
+  this.isFlying = false;
+}
+Airplane.prototype.takeOff = function () {
+  this.isFlying = true;
+};
+Airplane.prototype.land = function () {
+  this.isFlying = false;
+};
+
+let biplane = new Airplane('biplane');
+// console.log(Airplane);
+// console.log('---------');
+// console.log(biplane);
+// biplane.takeOff();
+// console.log(biplane);
+/*
+// 👇 COMPLETE YOUR WORK BELOW 👇
+// 👇 COMPLETE YOUR WORK BELOW 👇
+// 👇 COMPLETE YOUR WORK BELOW 👇
+*/
+
+/*
+  TASK 1
+    - Write a Person Constructor that initializes `name` and `age` from arguments.
+    - All instances of Person should initialize with an empty `stomach` array.
+    - Give instances of Person the ability to `.eat("someFood")`:
+        + When eating an edible, it should be pushed into the `stomach`.
+        + The `eat` method should have no effect if there are 10 items in the `stomach`.
+    - Give instances of Person the ability to `.poop()`:
+        + When an instance poops, its `stomach` should empty.
+    - Give instances of Person a method `.toString()`:
+        + It should return a string with `name` and `age`. Example: "Mary, 50"
+*/
+function Person(name, age) {
+  this.name = name,
+  this.age = age,
+  this.stomach = []
+};
+
+Person.prototype.eat = function (food){
+  // console.log(`${this.name} just ate some ${food}`);
+  if (this.stomach.length < 10){
+    this.stomach.push(food);
+    // console.log(this.stomach);
+  } else {
+    // console.log('im too full 🤢')
+  }
+}
+
+Person.prototype.poop = function (){
+  // console.log(`${this.name} just pooped 💩`);
+  this.stomach = [];
+}
+
+Person.prototype.toString = function (){
+  // console.log(`${this.name}, ${this.age}`);
+  return `${this.name}, ${this.age}`;
+}
+
+/*
   TASK 2
     ✅- Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
     ✅- All instances built with Car:
@@ -25,4 +96,27 @@ Car.prototype.fill = function(gallons){
 
 let truck = new Car('dodge', 16);
 
-console.log(truck);
+/*
+  TASK 3
+    ✅- Write a Baby constructor subclassing Person.
+    ✅- Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
+    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
+        + Should return a string "Playing with x", x being the favorite toy.
+*/
+
+
+function Baby(name, age, favoriteToy) {
+  this.name = name,
+  this.name = age,
+  this.favoriteToy = favoriteToy
+};
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(toy){
+  return "Playing with " + toy;
+}
+
+let haddie = new Baby('haddie', 1, 'car');
+
+console.log(haddie);
