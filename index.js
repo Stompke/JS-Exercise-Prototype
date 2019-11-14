@@ -100,8 +100,8 @@ let truck = new Car('dodge', 16);
   TASK 3
     ✅- Write a Baby constructor subclassing Person.
     ✅- Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
-    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
-        + Should return a string "Playing with x", x being the favorite toy.
+    ✅- Besides the methods on Person.prototype, babies have the ability to `.play()`:
+        ✅+ Should return a string "Playing with x", x being the favorite toy.
 */
 
 
@@ -123,10 +123,10 @@ Baby.prototype.play = function(){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. if you call this outside of all scopes you will be pointing to the window/console which is the javascript running
+  2. when you are calling a function with a method function. the object before the dot is what 'this' is pointing to.
+  3. When your using a constructor function the 'this.' is creating a key-value pair for the current variable you are building.
+  4. Explicit binding point the 'this' to whatever object you choose with .call() or .apply()
 */
 
 
