@@ -19,7 +19,7 @@ Airplane.prototype.land = function () {
   this.isFlying = false;
 };
 
-let biplane = new Airplane('biplane');
+// let biplane = new Airplane('biplane');
 // console.log(Airplane);
 // console.log('---------');
 // console.log(biplane);
@@ -77,8 +77,8 @@ Person.prototype.toString = function (){
         ✅+ should initialize with an `odometer` at 0
     ✅- Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+        ✅+ Should cause the `odometer` to go up.
+        ✅+ Should cause the the `tank` to go down taking `milesPerGallon` into account.
     - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
@@ -94,7 +94,31 @@ Car.prototype.fill = function(gallons){
   this.tank += gallons;
 }
 
-let truck = new Car('dodge', 16);
+Car.prototype.drive = function(distance){
+  
+  if(this.tank * this.milesPerGallon >= distance) {
+    this.odometer += distance;
+    this.tank -= (distance / this.milesPerGallon);
+  } else if(this.tank * this.milesPerGallon < distance) {
+    this.odometer += (this.tank * this.milesPerGallon )
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`
+  }
+
+  }
+
+
+
+
+
+//   if (this.tank <= 0){
+//     return `I ran out of fuel at ${this.odometer + this.tank * this.milesPerGallon} miles!`;
+//   } else if(){
+//   }else {
+//     this.odometer += distance;
+//     this.tank -= (distance / this.milesPerGallon);
+//   }
+// }
 
 /*
   TASK 3
